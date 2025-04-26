@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        a {
+          transition: color 0.3s ease;
+          text-decoration: none;
+          font-weight: bold;
+        }
+      </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css_Acceuille.css">
+    <title>Acceuille</title>
+    <div class="header"> 
+        <nav>
+            <div>
+                <ul>
+                    <li><a class="hover-color" href="Acceuille.html">Acceuil</a></li>
+                    <li><a class="hover-color4" href="Aprospos.html">A propos</a></li>
+                    <li><a class="hover-color3" href="#">Contact</a></li>
+                    <li><a class="hover-color5" href="Projets.html">projets</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</head>
+
+  
+    <body>
+        <center>
+            <div class="typewriter">
+                <h1 class="titre">Bienvenu dans mon PortFolio !!</h1>
+                <br>
+                <p class="nom">Djylan Brooks</p>
+            </div>
+        </center>
+
+    </body>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Mon PortFolio. Tous droits réservés.</p>
+            <ul class="socials">
+                <li><a href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+                <li><a href="https://www.twitter.com" target="_blank" rel="noopener">Twitter</a></li>
+                <li><a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+            </ul>
+        </div>
+        <div class="center-container">
+  <div id="terminalBox">
+    <p id="clickableText">Clique pour ouvrir le terminal</p>
+    <div id="terminal" class="hidden">
+      <span class="prompt">$</span>
+      <input type="text" id="commandInput" placeholder="Tape une commande..." />
+    </div>
+  </div>
+</div>
+
+          <script>
+    const terminalBox = document.getElementById("terminalBox");
+    const clickableText = document.getElementById("clickableText");
+    const terminal = document.getElementById("terminal");
+    const input = document.getElementById("commandInput");
+  
+    // Clic sur le cube → active le terminal
+    terminalBox.addEventListener("click", () => {
+      terminalBox.classList.add("active");
+      clickableText.classList.add("hidden");
+      terminal.classList.remove("hidden");
+      input.focus();
+    });
+  
+    // Gestion des commandes entrées
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        const command = input.value.trim().toLowerCase();
+        input.value = ""; // on vide le champ
+  
+        switch (command) {
+          case "rouge":
+            document.body.style.backgroundColor = "red";
+            break;
+          case "bleu":
+            document.body.style.backgroundColor = "blue";
+            break;
+          case "/admin":
+            document.body.style.backgroundColor = "limegreen";
+            alert("Vous avez accédé au mode administrateur !");
+            break;
+          case "noir":
+            document.body.style.backgroundColor = "black";
+            break;
+          case "reset":
+            document.body.style.backgroundColor = "";
+            break;
+          default:
+            alert("Commande inconnue : " + command);
+            break;
+        }
+      }
+    });
+  </script>
+
+    </footer>
+</html>
