@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        a {
+          transition: color 0.3s ease;
+          text-decoration: none;
+          font-weight: bold;
+        }
+      </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Projets.css">
+    <title>Projets</title>
+    <div class="header"> 
+        <nav>
+            <div>
+                <ul>
+                    <li><a class="hover-color" href="index.html">Acceuil</a></li>
+                    <li><a class="hover-color4" href="Aprospos.html">A propos</a></li>
+                    <li><a class="hover-color3" href="#">Contact</a></li>
+                    <li><a class="hover-color5" href="Projets.html">projets</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</head>
+<body>
+    <section id="projet">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="image-Portfolio/Capture d'écran 2025-04-25 205553.png" alt="Image principale">
+          </div>
+          <div class="project-content">
+            <h2>Nom du projet</h2>
+            <p>Voici une brève description de mon projet HTML/CSS avec effet lightbox.</p>
+            <button class="project-toggle">Voir plus</button>
+      
+            <div class="more-images hidden">
+              <img src="image-Portfolio/Capture d'écran 2025-04-25 205553.png" class="clickable" alt="img 2">
+              <img src="image-Portfolio/verif.png" class="clickable" alt="img 3">
+              <img src="image-Portfolio/resultat.png" class="clickable" alt="img 4">
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Lightbox -->
+      <div id="lightbox" class="hidden">
+        <span id="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoom">
+      </div>
+      
+      <script src="script.js"></script>
+      <script>// Voir plus / Voir moins
+        const toggleButton = document.querySelector(".project-toggle");
+        const moreImages = document.querySelector(".more-images");
+        
+        toggleButton.addEventListener("click", () => {
+          moreImages.classList.toggle("visible");
+          moreImages.classList.toggle("hidden");
+          toggleButton.textContent = moreImages.classList.contains("visible") ? "Voir moins" : "Voir plus";
+        });
+        
+        // Lightbox
+        const images = document.querySelectorAll(".clickable");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const closeBtn = document.getElementById("close-lightbox");
+        
+        images.forEach(img => {
+          img.addEventListener("click", () => {
+            lightboxImg.src = img.src;
+            lightbox.classList.remove("hidden");
+          });
+        });
+        
+        closeBtn.addEventListener("click", () => {
+          lightbox.classList.add("hidden");
+        });
+        </script>
+</body>
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2025 Mon PortFolio. Tous droits réservés.</p>
+        <ul class="socials">
+            <li><a href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://www.twitter.com" target="_blank" rel="noopener">Twitter</a></li>
+            <li><a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+    </div>
+</html>
